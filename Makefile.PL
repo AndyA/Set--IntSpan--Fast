@@ -1,9 +1,19 @@
 #!/usr/bin/perl -w
+
+require 5.008001;
+
 use strict;
 use ExtUtils::MakeMaker;
 
 eval 'use ExtUtils::MakeMaker::Coverage';
-warn "Optional ExtUtils::MakeMaker::Coverage not available\n" if $@;
+
+eval 'use Set::IntSpan::Fast::XS';
+
+warn "================================================\n"
+  . "For even faster set handling consider installing\n"
+  . "Set::IntSpan::Fast::XS\n"
+  . "================================================\n"
+  if $@;
 
 WriteMakefile(
     ( MM->can( 'signature_target' ) ? ( SIGN => 1 ) : () ),
