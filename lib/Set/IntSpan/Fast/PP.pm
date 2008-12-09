@@ -66,6 +66,8 @@ sub copy {
   return $copy;
 }
 
+sub empty { @{ $_[0] } = () }
+
 sub add {
   my $self = shift;
   $self->add_range( $self->_list_to_ranges( @_ ) );

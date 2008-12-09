@@ -224,6 +224,10 @@ be specified.
 Merge the members of the supplied sets into this set. Any number of sets
 may be supplied as arguments.
 
+=head2 C<empty>
+
+Empty a set.
+
 =head2 Operators
 
 =head3 C<complement>
