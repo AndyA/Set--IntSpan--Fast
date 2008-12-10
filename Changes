@@ -55,3 +55,7 @@ Revision history for Set-IntSpan-Fast
 
 1.14    2008-07-01
         Improved test coverage when ::XS is already installed
+
+1.15    2008-12-09
+        Added empty method.
+
