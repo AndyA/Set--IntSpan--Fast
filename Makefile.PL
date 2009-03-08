@@ -17,11 +17,11 @@ warn "================================================\n"
 
 WriteMakefile(
   ( MM->can( 'signature_target' ) ? ( SIGN => 1 ) : () ),
+  license( 'perl' ),
   NAME          => 'Set::IntSpan::Fast',
   AUTHOR        => 'Andy Armstrong <andy@hexten.net>',
   VERSION_FROM  => 'lib/Set/IntSpan/Fast.pm',
   ABSTRACT_FROM => 'lib/Set/IntSpan/Fast.pm',
-  LICENSE       => 'perl',
   PL_FILES      => {},
   PREREQ_PM     => {
     'Test::More'  => 0,
@@ -31,3 +31,11 @@ WriteMakefile(
   dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
   clean => { FILES    => 'Set-IntSpan-Fast-*' },
 );
+
+sub license {
+  my $lic = shift;
+  local $^W = 0;    # Silence warning about non-numeric version
+  return
+   unless $ExtUtils::MakeMaker::VERSION >= '6.31';
+  return ( LICENSE => $lic );
+}
